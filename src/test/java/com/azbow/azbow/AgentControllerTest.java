@@ -2,7 +2,7 @@ package com.azbow.azbow;
 
 import com.azbow.azbow.controller.AgentController;
 import com.azbow.azbow.entity.Agent;
-import com.azbow.azbow.service.AgentService;
+import com.azbow.azbow.service.impl.AgentServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -26,7 +26,7 @@ public class AgentControllerTest {
     private MockMvc mockMvc;
 
     @Mock
-    private AgentService agentService;
+    private AgentServiceImpl agentServiceImpl;
 
     @InjectMocks
     private AgentController agentController;
@@ -46,7 +46,7 @@ public class AgentControllerTest {
         Map<String, Object> response = new HashMap<>();
         response.put("message", "Agent created successfully");
 
-        when(agentService.saveAgent(any(Agent.class))).thenReturn(response);
+        when(agentServiceImpl.saveAgent(any(Agent.class))).thenReturn(response);
 
         mockMvc.perform(post("/api/agents")
                         .contentType(MediaType.APPLICATION_JSON)

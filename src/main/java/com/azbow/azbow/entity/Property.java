@@ -1,5 +1,6 @@
 package com.azbow.azbow.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -8,13 +9,14 @@ import java.util.List;
 @Entity
 @Data
 public class Property {
+    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long propertyId;
     String location;
     Double price;
 
-    @OneToMany(mappedBy = "property" , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "property", cascade = CascadeType.ALL)
     List<Reservation> reservations;
 
     public Property() {

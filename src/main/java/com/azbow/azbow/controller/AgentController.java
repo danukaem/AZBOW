@@ -1,7 +1,7 @@
 package com.azbow.azbow.controller;
 
 import com.azbow.azbow.entity.Agent;
-import com.azbow.azbow.service.AgentService;
+import com.azbow.azbow.service.impl.AgentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,11 +12,11 @@ import java.util.Map;
 public class AgentController {
 
     @Autowired
-    AgentService agentService;
+    AgentServiceImpl agentServiceImpl;
 
     @PostMapping
     public Map<String, Object> createAgent(@RequestBody Agent agent) {
-        return agentService.saveAgent(agent);
+        return agentServiceImpl.saveAgent(agent);
     }
 
 }

@@ -1,6 +1,6 @@
 package com.azbow.azbow.controller;
 
-import com.azbow.azbow.service.SalesService;
+import com.azbow.azbow.service.impl.SalesServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,10 +14,10 @@ import java.util.Map;
 public class SalesController {
 
     @Autowired
-    SalesService salesService;
+    SalesServiceImpl salesServiceImpl;
 
     @PostMapping
     public Map<String, Object> createSales(@RequestBody Map<String, Object> sales) {
-        return salesService.createSales(sales);
+        return salesServiceImpl.createSales(sales);
     }
 }

@@ -7,6 +7,8 @@ import lombok.Data;
 import java.util.List;
 @Entity
 public class Agent {
+
+    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long agentId;

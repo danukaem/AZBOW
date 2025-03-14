@@ -2,7 +2,7 @@ package com.azbow.azbow;
 
 import com.azbow.azbow.entity.Agent;
 import com.azbow.azbow.repository.AgentRepository;
-import com.azbow.azbow.service.AgentService;
+import com.azbow.azbow.service.impl.AgentServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -16,13 +16,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-public class AgentServiceTest {
+public class AgentServiceImplTest {
 
     @Mock
     private AgentRepository agentRepository;
 
     @InjectMocks
-    private AgentService agentService;
+    private AgentServiceImpl agentServiceImpl;
 
     @BeforeEach
     public void setUp() {
@@ -41,7 +41,7 @@ public class AgentServiceTest {
         expectedResponse.put("lagentId", 1L);
         expectedResponse.put("message", "Agent created successfully");
 
-        Map<String, Object> actualResponse = agentService.saveAgent(agent);
+        Map<String, Object> actualResponse = agentServiceImpl.saveAgent(agent);
 
         assertEquals(expectedResponse, actualResponse);
     }
