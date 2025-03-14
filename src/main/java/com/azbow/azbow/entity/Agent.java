@@ -1,5 +1,6 @@
 package com.azbow.azbow.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -12,6 +13,7 @@ public class Agent {
     String name;
     String contactInfo;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "agent", cascade = CascadeType.ALL)
     List<Lead> leads;
 
