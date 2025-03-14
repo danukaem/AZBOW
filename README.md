@@ -135,3 +135,7 @@ mvn test
 
 ## License
 This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+
+## Swagger 
+http://localhost:8081/swagger-ui/index.html#/
